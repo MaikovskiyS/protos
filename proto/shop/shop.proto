@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package shop;
+
+option go_package = "shop.v1;shopv1";
+
+service Product{
+    rpc Save(SaveRequest)returns(SaveResponse);
+    rpc GetById(GetByIdRequest)returns(GetByIdResponse);
+}
+message SaveRequest{
+    uint64  id =1;
+    string sku =2;
+    string category =3;
+    string name =4;
+    float price = 5;
+    string image =6;
+}
+message SaveResponse{
+    uint64 id=1;
+}
+message GetByIdRequest{
+    int64 id =1;
+}
+message GetByIdResponse{
+    uint64  id =1;
+    string sku =2;
+    string category =3;
+    string name =4;
+    fixed64 price = 5;
+    string image =6;
+}
